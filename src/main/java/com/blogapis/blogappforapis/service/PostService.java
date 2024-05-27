@@ -10,9 +10,9 @@ public interface PostService {
 
     Post updatePost(Post post, Long postId);
 void deletePost(Long postId);
-List<Post>getAllPost();
+List<postDTO>getAllPost(Integer pageNumber,Integer pageSize);
 Post getPostById(Long postId);
-List<Post>getAllPostByCategory(Long catId);
-List<Post>getAllPostByUser(Long userId);
-List<Post>searchPosts(String keyword);
+List<postDTO>getAllPostByCategory(Long catId);
+List<postDTO>getAllPostByUser(Long userId);
+List<postDTO>searchPosts(String keyword);
 }
