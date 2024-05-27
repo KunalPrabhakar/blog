@@ -1,5 +1,6 @@
 package com.blogapis.blogappforapis.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 

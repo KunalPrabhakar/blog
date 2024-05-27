@@ -6,7 +6,9 @@ import com.blogapis.blogappforapis.Repository.UserRepo;
 import com.blogapis.blogappforapis.entities.Categories;
 import com.blogapis.blogappforapis.entities.Post;
 import com.blogapis.blogappforapis.entities.User;
+import com.blogapis.blogappforapis.payload.postDTO;
 import com.blogapis.blogappforapis.service.PostService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,15 +24,17 @@ public class PostServiceImpl implements PostService {
 
    @Autowired
    private CategoryRepo categoryRepo;
+    @Autowired
+    private ModelMapper modelMapper;
     @Override
-    public Post createPost(Post post, Long catId, Long userId) {
+    public postDTO createPost(postDTO post, Long catId, Long userId) {
    User user=userRepo.findById(userId).orElse(null);
    Categories category= categoryRepo.findById(catId).orElse(null);
-    post.setDateofpost(new Date());
-    post.setUser(user);
-    post.setCategories(category);
-
-    return postRepo.save(post);
+Post posttobesaved= modelMapper.map(post,Post.class);
+posttobesaved.setUser(user);
+posttobesaved.setCategories(category);
+posttobesaved.setDateofpost(new Date());
+   return modelMapper.map(postRepo.save(posttobesaved),postDTO.class);
     }
 
     @Override
