@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Table(name = "posts")
@@ -25,5 +25,9 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "user_Id")
     private User user;
+
+
+    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL)
+    private List<Comment> comments=new ArrayList<>();
 
 }

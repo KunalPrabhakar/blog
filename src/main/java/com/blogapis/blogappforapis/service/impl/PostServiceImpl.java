@@ -71,8 +71,9 @@ posttobesaved.setDateofpost(new Date());
     }
 
     @Override
-    public Post getPostById(Long postId) {
-        return null;
+    public postDTO getPostById(Long postId) {
+  Post post=  postRepo.findById(postId).orElse(null);
+        return modelMapper.map(post,postDTO.class);
     }
 
     @Override

@@ -25,6 +25,12 @@ public  ResponseEntity<List<postDTO>>getPostsByuser(@PathVariable Long userId){
     return new ResponseEntity<>(postService.getAllPostByUser(userId),HttpStatus.OK);
     }
 
+    @GetMapping("/{postId}")
+    public  ResponseEntity<postDTO>getPostById(@PathVariable Long postId){
+        return new ResponseEntity<>(postService.getPostById(postId),HttpStatus.OK);
+    }
+
+
     @GetMapping("/findByCategory/{catId}")
     public  ResponseEntity<List<postDTO>>getPostsByCat(@PathVariable Long catId){
         return new ResponseEntity<>(postService.getAllPostByCategory(catId),HttpStatus.OK);

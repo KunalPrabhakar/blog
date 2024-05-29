@@ -1,19 +1,21 @@
 package com.blogapis.blogappforapis.payload;
 
-import com.blogapis.blogappforapis.entities.Categories;
-import com.blogapis.blogappforapis.entities.User;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.blogapis.blogappforapis.entities.Comment;
 import lombok.Data;
 
-import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Data
 public class postDTO {
+    private Long postId;
     private String title;
     private String content;
     private catDTO categories;
     private UserDTO user;
+    private List<CommentDTO> comments;
+//  private Set<Comment>comments=new HashSet<>();
     //private String image;
     //private Date dateofpost;
 }
