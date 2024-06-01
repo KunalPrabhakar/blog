@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  dbservice:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=mypassword
+      - MYSQL_DATABASE=mydb
+      - MYSQL_USER=myuser
+      - MYSQL_PASSWORD=mypassword
+    volumes:
+      - ./db:/var/lib/mysql
+    ports:
+      - "3307:3306" # Exposing MySQL on port 3307 to the host
+    networks:
+      - networkName
+
+  appservice:
+    build: ./boot
+    depends_on:
+      - dbservice
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://dbservice:3306/mydb?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=myuser
+      - SPRING_DATASOURCE_PASSWORD=mypassword
+    ports:
+      - "8080:8080"
+    networks:
+      - networkName
+
+networks:
+  networkName:
+    driver: bridge
