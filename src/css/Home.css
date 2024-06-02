@@ -1,0 +1,51 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem; /* Reduced gap */
+}
+
+.user-card {
+  width: calc(25% - 0.5rem); /* Adjusted width to account for reduced gap */
+  margin-bottom: 0.5rem; /* Reduced bottom margin */
+}
+
+@media (max-width: 1200px) {
+  .user-card {
+    width: calc(33.33% - 0.5rem); /* 3 cards per row for medium screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .user-card {
+    width: calc(50% - 0.5rem); /* 2 cards per row for small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .user-card {
+    width: calc(100% - 0.5rem); /* 1 card per row for extra small screens */
+  }
+}
+.header-container {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Add some space below the header */
+}
+
+.styled-heading {
+  font-family: "Pacifico", cursive; /* Change to a fancy font */
+  font-size: 2.5em;
+  color: #333;
+  font-weight: bold; /* Make the font bold */
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .styled-heading {
+    font-size: 1.8em; /* Adjust font size for smaller screens */
+  }
+}

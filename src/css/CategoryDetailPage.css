@@ -1,0 +1,45 @@
+/* CategoryDetailPage.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.category-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.post-item {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.post-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.post-content {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.post-author {
+  font-size: 14px;
+  color: #888;
+  cursor: pointer; /* Add pointer cursor */
+}
