@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { NavLink as ReactLink, useNavigate } from "react-router-dom";
+import {
+  NavLink as ReactLink,
+  useNavigate,
+  useParams,
+  useLocation,
+} from "react-router-dom";
+
 import {
   Navbar,
   NavbarBrand,
@@ -19,6 +25,7 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  let { userId } = useParams();
 
   const args = {
     color: "light",
@@ -27,9 +34,17 @@ const NavBar = () => {
   };
   const navigate = useNavigate();
 
-  const addNewBlog = () => {
-    navigate(`/createblog`);
+  const addNewBlog = (userId) => {
+    if (userId) {
+      navigate(`/createblog/${userId}`);
+    } else {
+      navigate(`/createblog`);
+    }
   };
+  const location = useLocation();
+
+  const shouldHideNavbarText = location.pathname.includes("createblog");
+
   return (
     <div>
       <Navbar {...args}>
@@ -54,9 +69,14 @@ const NavBar = () => {
               </DropdownMenu>
             </UncontrolledDropdown> */}
           </Nav>
-          <NavbarText onClick={addNewBlog} style={{ cursor: "pointer" }}>
-            Click here to add new blog
-          </NavbarText>
+          {!shouldHideNavbarText && (
+            <NavbarText
+              onClick={() => addNewBlog(userId)}
+              style={{ cursor: "pointer" }}
+            >
+              Click here to add new blog
+            </NavbarText>
+          )}
         </Collapse>
       </Navbar>
     </div>

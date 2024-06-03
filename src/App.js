@@ -16,6 +16,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="/blogs/:userId" element={<UserBlogsPage />} />
         <Route path="/categories/:catId" element={<CategoryDetailPage />} />
+        <Route path="/createblog/:userId" element={<NewBlog />} />
         <Route path="/createblog" element={<NewBlog />} />
       </Routes>
     </BrowserRouter>
