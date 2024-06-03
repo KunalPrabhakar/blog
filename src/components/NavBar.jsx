@@ -42,11 +42,6 @@ const NavBar = () => {
                 About
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink tag={ReactLink} to="/contact">
-                Contact
-              </NavLink>
-            </NavItem>
             {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Options
