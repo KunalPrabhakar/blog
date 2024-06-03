@@ -15,6 +15,7 @@ public class UserController {
     @Autowired
 private Userservice Userservice;
     @PostMapping("/")
+    @CrossOrigin(origins = "http://localhost:3000") // Replace with your frontend URL
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO){
 UserDTO createUserDto = Userservice.createUser(userDTO);
         return new ResponseEntity<>(createUserDto, HttpStatus.OK);

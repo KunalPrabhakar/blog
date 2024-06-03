@@ -30,6 +30,7 @@ user.setName(userDTO.getName());
 user.setEmail(userDTO.getEmail());
 user.setPassword(userDTO.getPassword());
 user.setAbout(userDTO.getAbout());
+user.setImage(userDTO.getImage());
 User savedUser=userRepo.save(user);
         return convertFromUser(savedUser);
     }

@@ -16,7 +16,8 @@ public class PostController {
     @Autowired
     PostService postService;
     @PostMapping("/user/{userId}/category/{catId}/post")
-public ResponseEntity<postDTO>createPosts(@RequestBody postDTO post, @PathVariable Long userId, @PathVariable Long catId){
+//    @CrossOrigin(origins = "http://localhost:3000") // Replace with your frontend URL
+    public ResponseEntity<postDTO>createPosts(@RequestBody postDTO post, @PathVariable Long userId, @PathVariable Long catId){
     return new ResponseEntity<>(postService.createPost(post,catId,userId), HttpStatus.OK);
 }
 

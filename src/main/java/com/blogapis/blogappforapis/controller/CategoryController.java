@@ -17,6 +17,7 @@ public class CategoryController {
    @Autowired
     private catservice catservice;
     @PostMapping("/")
+//    @CrossOrigin(origins = "http://localhost:3000") // Replace with your frontend URL
     public ResponseEntity<catDTO> createCategory(@RequestBody catDTO catDto){
         catDTO catcreated=    catservice.createCat(catDto);
         return  new ResponseEntity<>(catcreated, HttpStatus.OK);
