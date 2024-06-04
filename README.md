@@ -6,3 +6,8 @@ Command to run docker = docker run --name mysql-container \
   -p 3307:3306 \
   -d mysql:latest
 
+
+Command to run through docker compose
+
+docker-compose build
+docker-compose up
