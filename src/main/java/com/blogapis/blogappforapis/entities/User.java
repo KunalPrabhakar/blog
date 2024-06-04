@@ -30,6 +30,8 @@ public class User {
     @Column(nullable = false)
     private String about;
 
+    @Column(nullable = true)
+    private String imageName;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Post> posts=new ArrayList<>();
 }

@@ -8,8 +8,7 @@ import lombok.Data;
 
 @Data
 public class UserDTO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long id;
 
 
@@ -22,4 +21,6 @@ public class UserDTO {
     private String password;
 
     private String about;
+
+    private String imageName;
 }

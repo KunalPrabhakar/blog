@@ -30,7 +30,7 @@ user.setName(userDTO.getName());
 user.setEmail(userDTO.getEmail());
 user.setPassword(userDTO.getPassword());
 user.setAbout(userDTO.getAbout());
-user.setImage(userDTO.getImage());
+user.setImageName(userDTO.getImageName());
 User savedUser=userRepo.save(user);
         return convertFromUser(savedUser);
     }
@@ -62,6 +62,7 @@ User savedUser=userRepo.save(user);
     user.setEmail(userDTO.getEmail());
     user.setPassword(userDTO.getPassword());
     user.setAbout(userDTO.getAbout());
+        user.setImageName(userDTO.getImageName() != null ? userDTO.getImageName() : "default.jpeg"); // Set a default image name
     return user;
 }
 private UserDTO convertFromUser(User user) {
@@ -71,6 +72,7 @@ private UserDTO convertFromUser(User user) {
     userDTO.setEmail(user.getEmail());
     userDTO.setPassword(user.getPassword());
     userDTO.setAbout(user.getAbout());
+    userDTO.setImageName(user.getImageName());
     return userDTO;
     }
 }
